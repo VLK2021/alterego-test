@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {useForm} from "react-hook-form";
 
 import './FormStyle.css';
@@ -6,16 +6,6 @@ import './FormStyle.css';
 
 const Form = () => {
     const {register, handleSubmit, reset, formState: {errors, isValid}} = useForm({mode: "onBlur"});
-
-    const [user, setUser] = useState({
-        username:'',
-
-    });
-
-    // const user = {
-    //     username: 'admin',
-    //     password: 12345
-    // }
 
     const submit = (data: any) => {
         console.log(data);
