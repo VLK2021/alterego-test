@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useForm} from "react-hook-form";
 
 import './FormStyle.css';
@@ -7,7 +7,17 @@ import './FormStyle.css';
 const Form = () => {
     const {register, handleSubmit, reset, formState: {errors, isValid}} = useForm({mode: "onBlur"});
 
-    const submit = (data: object) => {
+    const [user, setUser] = useState({
+        username:'',
+
+    });
+
+    // const user = {
+    //     username: 'admin',
+    //     password: 12345
+    // }
+
+    const submit = (data: any) => {
         console.log(data);
         reset();
     }
@@ -17,24 +27,26 @@ const Form = () => {
         <div className={'maine'}>
             <form onSubmit={handleSubmit(submit)}>
                 <div>
-                    <p>Username:</p>
+                    <label>Username:</label><br/>
                     <input type="text" placeholder={'Enter username...'} {...register('username',{
                         required: 'Ім\'я користувача або пароль введено неправильно'
                     })}/>
                 </div>
+                <div className={'error'}>
+                    {errors?.username && <p>{errors.username.message as string || 'Error'}</p>}
+                </div>
+
                 <div>
-                    <p>Password:</p>
+                    <label>Password:</label><br/>
                     <input type="text" placeholder={'Enter password...'} {...register('password',{
                         required:'Ім\'я користувача або пароль введено неправильно'
                     })}/>
                 </div>
-
-                <button disabled={!isValid}>login</button>
-
                 <div className={'error'}>
-                    {errors?.username && <p>{errors.username.message as string || 'Error'}</p>}
                     {errors?.password && <p>{errors.password.message as string || 'Error'}</p>}
                 </div>
+
+                <button disabled={!isValid}>login</button>
             </form>
         </div>
     );

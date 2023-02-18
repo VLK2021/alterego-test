@@ -7,6 +7,7 @@ import Users from "./components/Users/Users";
 import News from "./components/News/News";
 import Profile from "./components/Profile/Profile";
 import Login from "./components/Login/Login";
+import RequireAuth from "./hoc/RequireAuth";
 
 
 function App() {
@@ -17,7 +18,11 @@ function App() {
                     <Route index element={<Users/>}/>
                     <Route path={'/login'} element={<Login/>}/>
                     <Route path={'/news'} element={<News/>}/>
-                    <Route path={'/profile'} element={<Profile/>}/>
+                    <Route path={'/profile'} element={
+                        <RequireAuth>
+                            <Profile/>
+                        </RequireAuth>}
+                    />
                 </Route>
             </Routes>
         </div>
