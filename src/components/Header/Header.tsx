@@ -1,48 +1,34 @@
-import React, {ChangeEvent, useCallback} from 'react';
+import React, {ChangeEvent} from 'react';
+import {NavLink} from "react-router-dom";
+import {useTranslation} from "react-i18next";
 
 import './HeaderStyle.css';
-import {NavLink} from "react-router-dom";
-import i18n from "i18next";
 
 
 const Header: React.FC = () => {
+    const {t, i18n} = useTranslation();
 
-    // const changeLanguage = (language: any) => {
-    //     i18n.changeLanguage(language);
-    // };
-
-    const langHandler =useCallback((e: ChangeEvent<HTMLInputElement>) => i18n.changeLanguage(e.target.checked ? 'en' : 'ua'),[i18n])
+    const langHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        i18n.changeLanguage(e.target.checked ? 'en' : 'ua')
+    }
 
 
     return (
         <div className={'header'}>
-            <div className={'select'}>
-                {/*<button onClick={()=> changeLanguage('ua')}>ua</button>*/}
-                {/*<button onClick={()=> changeLanguage('en')}>en</button>*/}
-                {/*<select>*/}
-                {/*    <option>UA</option>*/}
-                {/*    <option>EN</option>*/}
-                {/*</select>*/}
-
-
-
-                <div className={'input'}>
-                    <div>UA</div>
-                    <div><input className={'inputStyle'} type="checkbox" onChange={langHandler}/></div>
-                    <div>EN</div>
-                </div>
-
-
+            <div className={'input'}>
+                <p>ua</p>
+                <input className={'inputStyle'} type="checkbox" onChange={langHandler}/>
+                <p>en</p>
             </div>
 
             <ul>
-                <li><NavLink to={'/'}>Головев</NavLink></li>
-                <li><NavLink to={'/news'}>Новини</NavLink></li>
-                <li><NavLink to={'/profile'}>Профіль </NavLink></li>
+                <li><NavLink to={'/'}>{t('news-h-home')}</NavLink></li>
+                <li><NavLink to={'/news'}>{t('news-h-news')}</NavLink></li>
+                <li><NavLink to={'/profile'}>{t('news-h-profile')} </NavLink></li>
             </ul>
 
             <div className={'header-login'}>
-                <NavLink to={'/login'}>Login</NavLink>
+                <NavLink to={'/login'}>{t('news-h-login')}</NavLink>
             </div>
         </div>
     );

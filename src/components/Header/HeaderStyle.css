@@ -29,11 +29,24 @@ a {
 
 }
 
-.select {
-    width: 3rem;
+.input {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-select{
-    padding: 0.5rem;
+.inputStyle {
+    width: 1.7rem;
+    margin: 0 0.3rem 0 0.3rem;
 }
+
+.input > p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--var-color-header);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+

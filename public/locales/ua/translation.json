@@ -1,3 +1,11 @@
 {
-  "news-title": "Новини"
+  "news-h-home": "Головна",
+  "news-h-news": "Новини",
+  "news-h-profile": "Профіль",
+  "news-h-login": "Вхід",
+  "news-title": "Новини",
+  "news-btn-add": "Завантажити ще",
+  "news-form-username": "Логін",
+  "news-form-password": "Пароль",
+  "news-form-btn": "Відправити"
 }

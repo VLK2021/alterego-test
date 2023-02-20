@@ -1,7 +1,7 @@
 .new {
     width: 32%;
     padding: 0.3rem;
-    border: 1px solid black;
+    border: 1px solid var(--var-bg-header);
     background:gainsboro;
     box-shadow: 0.2rem 0.2rem 0.2rem grey;
     border-radius: 0.8rem;

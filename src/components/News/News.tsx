@@ -40,7 +40,7 @@ const News: FC = () => {
             </div>
 
             <div className={'btn'}>
-                <button onClick={addMoreHandler}>Завантажити ще</button>
+                <button onClick={addMoreHandler}>{t('news-btn-add')}</button>
             </div>
         </div>
     );
