@@ -1,8 +1,9 @@
 import {axiosService} from "./axios.service";
 import {urls} from "../constants/urls";
+import {INew} from "../interfaces/INew";
+import {IRes} from "../interfaces/IRes";
 
 
 export const newsServices = {
-    getAllUsers: () => axiosService.get(urls.users).then(value => value.data),
-    getAllNews: () => axiosService.get(urls.comments).then(value => value.data)
+    getNews: (page:number):IRes<INew[]> => axiosService.get(urls.posts(page)).then(value => value.data),
 }

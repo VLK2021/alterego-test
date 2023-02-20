@@ -1,0 +1,24 @@
+.new {
+    width: 32%;
+    padding: 0.3rem;
+    border: 1px solid black;
+    background:gainsboro;
+    box-shadow: 0.2rem 0.2rem 0.2rem grey;
+    border-radius: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.new-del{
+    width: 100%;
+    text-align: end;
+    padding-right: 1rem;
+    cursor: pointer;
+    color: red;
+    font-weight: bold;
+}
+
+.new > h3 {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}

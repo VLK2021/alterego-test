@@ -1,4 +1,4 @@
 export const urls = {
     users: '/users',
-    comments: 'comments'
+    posts: (page?:number) => `/posts?_page=${page}&_limit=12`
 }

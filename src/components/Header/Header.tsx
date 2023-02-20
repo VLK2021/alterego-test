@@ -4,7 +4,7 @@ import './HeaderStyle.css';
 import {NavLink} from "react-router-dom";
 
 
-const Header = () => {
+const Header: React.FC = () => {
 
     return (
         <div className={'header'}>

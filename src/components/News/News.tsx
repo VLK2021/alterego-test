@@ -1,14 +1,45 @@
-import React from 'react';
+import React, {FC, useCallback, useEffect} from 'react';
+import {useDispatch, useSelector} from "react-redux";
 
 import './NewsStyle.css';
+import New from "../New/New";
+import {getAllNews, getNewsMore} from "../../store/slices/news.slice";
+import {INew} from "../../interfaces/INew";
 
 
-const News = () => {
+const News: FC = () => {
+    const dispatch = useDispatch();
+    // @ts-ignore
+    const {page, newsArr} = useSelector(state => state.news);
+    let p = page;
+
+    useEffect(() => {
+        // @ts-ignore
+        dispatch(getAllNews(page))
+    }, []);
+
+
+    const addMoreHandler = useCallback(() => {
+        // @ts-ignore
+        dispatch(getNewsMore(p + 1));
+        p = p + 1
+    }, [p]);
+
 
     return (
         <div className={'news'}>
-            News
+            <h1>News</h1>
 
+            <div className={'news-block'}>
+                {
+                    //@ts-ignore
+                    newsArr.map((item: INew) => <New key={item.id} item={item}/>)
+                }
+            </div>
+
+            <div className={'btn'}>
+                <button onClick={addMoreHandler}>Завантажити ще</button>
+            </div>
         </div>
     );
 };

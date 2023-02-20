@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {useForm} from "react-hook-form";
 
 import './FormStyle.css';
 
 
-const Form = () => {
+const Form: FC = () => {
     const {register, handleSubmit, reset, formState: {errors, isValid}} = useForm({mode: "onBlur"});
 
     const submit = (data: any) => {

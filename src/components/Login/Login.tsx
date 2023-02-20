@@ -4,7 +4,7 @@ import './LoginStyle.css';
 import Form from "../Form/Form";
 
 
-const Login = () => {
+const Login: React.FC = () => {
 
     return (
         <div className={'login'}>
