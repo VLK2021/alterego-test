@@ -15,4 +15,13 @@ ul{
 :root {
     --var-bg-header : #000000;
     --var-color-header:#fffafa;
+    --var-bg-all: url(./images/test.jpg) no-repeat center fixed;
+}
+
+body{
+    background: var(--var-bg-all);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
