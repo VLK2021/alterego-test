@@ -1,5 +1,6 @@
 import React, {FC, useCallback, useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
+import {useTranslation} from "react-i18next";
 
 import './NewsStyle.css';
 import New from "../New/New";
@@ -9,6 +10,7 @@ import {INew} from "../../interfaces/INew";
 
 const News: FC = () => {
     const dispatch = useDispatch();
+    const {t, i18n} = useTranslation();
     // @ts-ignore
     const {page, newsArr} = useSelector(state => state.news);
     let p = page;
@@ -28,7 +30,7 @@ const News: FC = () => {
 
     return (
         <div className={'news'}>
-            <h1>News</h1>
+            <h1>{t('news-title')}</h1>
 
             <div className={'news-block'}>
                 {
