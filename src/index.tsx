@@ -4,9 +4,10 @@ import {BrowserRouter} from "react-router-dom";
 import {Provider} from "react-redux";
 
 import './index.css';
+import './18n';
 import App from './App';
 import store from "./store/store";
-import './18n';
+import Spinner from "./components/Spinner/Spinner";
 
 
 const root = ReactDOM.createRoot(
@@ -14,13 +15,13 @@ const root = ReactDOM.createRoot(
 );
 root.render(
     // <React.StrictMode>
-        <Provider store={store}>
-            <BrowserRouter>
-                <Suspense fallback={<div>Loading...</div>}>
-                    <App/>
-                </Suspense>
-            </BrowserRouter>
-        </Provider>
+    <Provider store={store}>
+        <BrowserRouter>
+            <Suspense fallback={<div><Spinner/></div>}>
+                <App/>
+            </Suspense>
+        </BrowserRouter>
+    </Provider>
     // </React.StrictMode>
 );
 

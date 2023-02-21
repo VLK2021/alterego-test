@@ -1,3 +1,15 @@
-.users{
+.users {
+    padding: 8rem;
+}
 
+.users > p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5rem;
+    font-weight: bold;
+    font-style: italic;
+    color: darkgrey;
+    text-shadow: 0.2rem 0.2rem 0.2rem black;
 }
