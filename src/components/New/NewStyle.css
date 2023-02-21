@@ -2,19 +2,36 @@
     width: 32%;
     padding: 0.3rem;
     border: 1px solid var(--var-bg-header);
-    background:gainsboro;
+    background: gainsboro;
     box-shadow: 0.2rem 0.2rem 0.2rem grey;
     border-radius: 0.8rem;
     margin-bottom: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
 }
 
-.new-del{
+.new-del {
     width: 100%;
-    text-align: end;
-    padding-right: 1rem;
+    text-align: center;
+}
+
+.new-del > button {
+    width: 40%;
+    text-align: center;
     cursor: pointer;
-    color: red;
+    color: snow;
+    border-radius: 0.8rem;
+    background: brown;
     font-weight: bold;
+    padding: 0.3rem;
+    transition: 2s;
+}
+
+.new-del > button:hover{
+   transform: scale(1.05, 1.05);
 }
 
 .new > h3 {

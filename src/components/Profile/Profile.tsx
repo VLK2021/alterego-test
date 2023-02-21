@@ -7,7 +7,10 @@ const Profile = () => {
 
     return (
         <div className={'profile'}>
-            Profile
+            <p>Profile</p>
+            <div id="marquee">
+                <p>authentication successful!</p>
+            </div>
         </div>
     );
 };

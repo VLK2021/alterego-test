@@ -9,6 +9,8 @@
     text-align: center;
     padding: 1rem;
     margin-bottom: 2rem;
+    color: darkgrey;
+    text-shadow: 0.2rem 0.2rem 0.2rem black;
 }
 
 .news-block {
@@ -19,16 +21,23 @@
     gap: 0.4rem;
 }
 
-.btn{
+.btn {
     width: 100%;
     text-align: center;
 }
 
-.btn > button{
+.btn > button {
     width: 60%;
     background: var(--var-bg-header);
     font-weight: bold;
     border-radius: 0.8rem;
     color: snow;
     margin-bottom: 1rem;
+    transition: 2s;
+}
+
+.btn > button:hover {
+    transform: scale(1.05, 1.05);
+    background: snow;
+    color: black;
 }

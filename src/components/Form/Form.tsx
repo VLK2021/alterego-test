@@ -3,15 +3,25 @@ import {useForm} from "react-hook-form";
 
 import './FormStyle.css';
 import {useTranslation} from "react-i18next";
+import {useNavigate} from "react-router-dom";
 
 
 const Form: FC = () => {
     const {register, handleSubmit, reset, formState: {errors, isValid}} = useForm({mode: "onBlur"});
     const {t} = useTranslation();
+    const navigate = useNavigate();
 
     const submit = (data: any) => {
-        console.log(data);
-        reset();
+        if (data.username === 'admin' && data.password === '12345'){
+            localStorage.setItem('usernameAuth', data.username)
+            localStorage.setItem('passwordAuth', data.password)
+            navigate('/profile')
+            reset();
+        } else {
+            navigate('/login')
+            reset();
+            return
+        }
     }
 
 
@@ -21,7 +31,11 @@ const Form: FC = () => {
                 <div>
                     <label>{t('news-form-username')}:</label><br/>
                     <input type="text" placeholder={'Enter username...'} {...register('username', {
-                        required: 'Ім\'я користувача або пароль введено неправильно'
+                        required: 'Ім\'я користувача або пароль введено неправильно',
+                        pattern: {
+                            value: /^admin$/,
+                            message: 'Ім\'я користувача або пароль введено неправильно'
+                        }
                     })}/>
                 </div>
                 <div className={'error'}>
@@ -31,7 +45,11 @@ const Form: FC = () => {
                 <div>
                     <label>{t('news-form-password')}:</label><br/>
                     <input type="text" placeholder={'Enter password...'} {...register('password', {
-                        required: 'Ім\'я користувача або пароль введено неправильно'
+                        required: 'Ім\'я користувача або пароль введено неправильно',
+                        pattern: {
+                            value: /^12345$/,
+                            message: 'Ім\'я користувача або пароль введено неправильно'
+                        }
                     })}/>
                 </div>
                 <div className={'error'}>

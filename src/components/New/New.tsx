@@ -18,10 +18,12 @@ const New: FC<INew> = ({item}) => {
 
     return (
         <div className={'new'}>
-            <div className={'new-del'} onClick={handlerDelete}>Х</div>
             <h3>{id}</h3>
             <p>{title}</p>
             <p>{body}</p>
+            <div className={'new-del'}>
+                <button onClick={handlerDelete}>delete</button>
+            </div>
         </div>
     );
 };

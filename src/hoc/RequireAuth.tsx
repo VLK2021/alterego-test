@@ -1,17 +1,20 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Navigate, useLocation} from "react-router-dom";
 
 
 const RequireAuth = ({children}: any) => {
     const location = useLocation();
-    const [user, setUser] = useState(false);
+
+    let usernameAuth = localStorage.getItem('usernameAuth');
+    let passwordAuth = localStorage.getItem('passwordAuth');
 
 
-    if (!user) {
+    if (usernameAuth === 'admin' && passwordAuth === '12345') {
+        return children
+    } else {
         return <Navigate to={'/login'} state={location}/>
     }
 
-    return children
 };
 
 export default RequireAuth;

@@ -32,16 +32,16 @@ const News: FC = () => {
         <div className={'news'}>
             <h1>{t('news-title')}</h1>
 
-            <div className={'news-block'}>
-                {
-                    //@ts-ignore
-                    newsArr.map((item: INew) => <New key={item.id} item={item}/>)
-                }
-            </div>
+                <div className={'news-block'}>
+                    {
+                        //@ts-ignore
+                        newsArr.map((item: INew) => <New key={item.id} item={item}/>)
+                    }
+                </div>
 
-            <div className={'btn'}>
+                <div className={'btn'}>
                 <button onClick={addMoreHandler}>{t('news-btn-add')}</button>
-            </div>
+                </div>
         </div>
     );
 };
