@@ -10,18 +10,18 @@ import {INew} from "../../interfaces/INew";
 
 const News: FC = () => {
     const dispatch = useDispatch();
-    const {t, i18n} = useTranslation();
+    const {t} = useTranslation();
     // @ts-ignore
     const {page, newsArr} = useSelector(state => state.news);
-    let p = page;
+    let p: number = page;
 
     useEffect(() => {
         // @ts-ignore
         dispatch(getAllNews(page))
-    }, []);
+    }, [dispatch, page]);
 
 
-    const addMoreHandler = useCallback(() => {
+    const addMoreHandler: React.EventHandler<React.MouseEvent> = useCallback(() => {
         // @ts-ignore
         dispatch(getNewsMore(p + 1));
         p = p + 1
@@ -30,18 +30,19 @@ const News: FC = () => {
 
     return (
         <div className={'news'}>
+
             <h1>{t('news-title')}</h1>
 
-                <div className={'news-block'}>
-                    {
-                        //@ts-ignore
-                        newsArr.map((item: INew) => <New key={item.id} item={item}/>)
-                    }
-                </div>
+            <div className={'news-block'}>
+                {
+                    //@ts-ignore
+                    newsArr.map((item: INew) => <New key={item.id} item={item}/>)
+                }
+            </div>
 
-                <div className={'btn'}>
+            <div className={'btn'}>
                 <button onClick={addMoreHandler}>{t('news-btn-add')}</button>
-                </div>
+            </div>
         </div>
     );
 };

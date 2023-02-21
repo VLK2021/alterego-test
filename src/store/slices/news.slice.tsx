@@ -19,7 +19,7 @@ export const getAllNews = createAsyncThunk(
 
 export const getNewsMore = createAsyncThunk(
     'newsSlice/getNewsMore',
-    async (page:number, {rejectWithValue, dispatch}) => {
+    async (page: number, {rejectWithValue, dispatch}) => {
         try {
             const response = await newsServices.getNews(page);
             dispatch(addNews({response}));
@@ -31,7 +31,7 @@ export const getNewsMore = createAsyncThunk(
 
 const initialState: IInitialstate = {
     newsArr: [],
-    status: null,
+    status: "",
     error: null,
     page: 1,
 }
@@ -45,20 +45,20 @@ const newsSlice = createSlice({
             state.newsArr = state.newsArr.filter(item => item.id !== action.payload)
         },
         addNews: (state, action) => {
-            action.payload.response.map((n:INew) => state.newsArr.push(n));
+            action.payload.response.map((n: INew) => state.newsArr.push(n));
         }
     },
 
     extraReducers: {
-        [getAllNews.pending as any]: (state: any, action: PayloadAction) => {
+        [getAllNews.pending.type]: (state: IInitialstate, action: PayloadAction<undefined>) => {
             state.status = "Loading..."
             state.error = null
         },
-        [getAllNews.fulfilled as any]: (state: any, action: PayloadAction) => {
+        [getAllNews.fulfilled.type]: (state: IInitialstate, action: PayloadAction<INew[]>) => {
             state.status = "fulfilled"
             state.newsArr = action.payload
         },
-        [getAllNews.rejected as any]: (state: any, action: PayloadAction) => {
+        [getAllNews.rejected.type]: (state: IInitialstate, action: PayloadAction<string>) => {
             state.status = 'rejected'
             state.error = action.payload
         },
@@ -68,3 +68,7 @@ const newsSlice = createSlice({
 export const {deleteNew, addNews} = newsSlice.actions;
 const newsReducer = newsSlice.reducer;
 export default newsReducer;
+
+
+
+

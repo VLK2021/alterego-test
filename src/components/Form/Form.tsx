@@ -1,9 +1,9 @@
 import React, {FC} from 'react';
 import {useForm} from "react-hook-form";
-
-import './FormStyle.css';
 import {useTranslation} from "react-i18next";
 import {useNavigate} from "react-router-dom";
+
+import './FormStyle.css';
 
 
 const Form: FC = () => {
@@ -12,7 +12,7 @@ const Form: FC = () => {
     const navigate = useNavigate();
 
     const submit = (data: any) => {
-        if (data.username === 'admin' && data.password === '12345'){
+        if (data.username === 'admin' && data.password === '12345') {
             localStorage.setItem('usernameAuth', data.username)
             localStorage.setItem('passwordAuth', data.password)
             navigate('/profile')
@@ -22,7 +22,7 @@ const Form: FC = () => {
             reset();
             return
         }
-    }
+    };
 
 
     return (

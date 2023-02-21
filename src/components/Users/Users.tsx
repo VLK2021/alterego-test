@@ -7,7 +7,7 @@ const Users = () => {
 
     return (
         <div className={'users'}>
-            <p>Test for AlterEGO</p>
+            <p>Test-task for AlterEGO</p>
         </div>
     );
 };

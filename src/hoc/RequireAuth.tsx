@@ -5,8 +5,8 @@ import {Navigate, useLocation} from "react-router-dom";
 const RequireAuth = ({children}: any) => {
     const location = useLocation();
 
-    let usernameAuth = localStorage.getItem('usernameAuth');
-    let passwordAuth = localStorage.getItem('passwordAuth');
+    const usernameAuth = localStorage.getItem('usernameAuth');
+    const passwordAuth = localStorage.getItem('passwordAuth');
 
 
     if (usernameAuth === 'admin' && passwordAuth === '12345') {
