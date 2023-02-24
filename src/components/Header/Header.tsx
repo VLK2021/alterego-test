@@ -1,6 +1,7 @@
 import React, {ChangeEvent} from 'react';
 import {NavLink, useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
+import Switch from "@mui/material/Switch";
 
 import './HeaderStyle.css';
 
@@ -24,7 +25,7 @@ const Header: React.FC = () => {
         <div className={'header'}>
             <div className={'input'}>
                 <p>ua</p>
-                <input className={'inputStyle'} type="checkbox" onChange={langHandler}/>
+                <Switch defaultChecked onChange={langHandler} color={'secondary'}/>
                 <p>en</p>
             </div>
 
