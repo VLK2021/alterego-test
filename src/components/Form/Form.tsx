@@ -2,6 +2,7 @@ import React, {FC} from 'react';
 import {useForm} from "react-hook-form";
 import {useTranslation} from "react-i18next";
 import {useNavigate} from "react-router-dom";
+import {BiHide} from 'react-icons/bi';
 
 import './FormStyle.css';
 
@@ -24,6 +25,16 @@ const Form: FC = () => {
         }
     };
 
+    const showPassword = (): void => {
+        const inputPassword = document.getElementById('password') as HTMLInputElement;
+
+        if (inputPassword.type === 'password') {
+            inputPassword.type = 'text';
+        } else {
+            inputPassword.type = 'password'
+        }
+    }
+
 
     return (
         <div className={'maine'}>
@@ -44,14 +55,17 @@ const Form: FC = () => {
 
                 <div>
                     <label>{t('news-form-password')}:</label><br/>
-                    <input type="text" placeholder={'Enter password...'} {...register('password', {
+                    <input type="password" id={'password'} placeholder={'Enter password...'} {...register('password', {
                         required: 'Ім\'я користувача або пароль введено неправильно',
                         pattern: {
                             value: /^12345$/,
                             message: 'Ім\'я користувача або пароль введено неправильно'
                         }
                     })}/>
+
+                    <BiHide className={'icon-hide'} size={23} onClick={showPassword}/>
                 </div>
+
                 <div className={'error'}>
                     {errors?.password && <p>{errors.password.message as string || 'Error'}</p>}
                 </div>

@@ -5,6 +5,7 @@
   "news-h-login": "Login",
   "news-h-logout": "Logout",
   "news-title": "News",
+  "news-new-delete": "Delete",
   "news-btn-add": "Load more",
   "news-form-username": "Username",
   "news-form-password": "Password",
