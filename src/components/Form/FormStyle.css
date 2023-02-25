@@ -20,6 +20,7 @@ input {
     margin-top: 0.5rem;
     margin-bottom: 1rem;
     box-shadow: 0.2rem 0.2rem 0.2rem black;
+    position: relative;
 }
 
 button {
